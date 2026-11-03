@@ -1,0 +1,216 @@
+{
+  "subjects": [
+    {
+      "id": "sub-1",
+      "slug": "lap-trinh-web-nang-cao",
+      "code": "INT1416",
+      "name": "Lập trình Web nâng cao",
+      "teacher": "ThS. Nguyễn Văn A",
+      "description": "Nghiên cứu kiến trúc Next.js App Router, SSR, SSG, ISR, Server Actions, bảo mật NextAuth và tối ưu hiệu năng web.",
+      "credits": 3
+    },
+    {
+      "id": "sub-2",
+      "slug": "kien-truc-phan-mem",
+      "code": "INT1434",
+      "name": "Kiến trúc phần mềm",
+      "teacher": "TS. Trần Thị B",
+      "description": "Tìm hiểu các mô hình kiến trúc Microservices, Clean Architecture, CQRS, Event-Driven và các mẫu thiết kế hướng dịch vụ hiện đại.",
+      "credits": 3
+    },
+    {
+      "id": "sub-3",
+      "slug": "hoc-may-va-ung-dung",
+      "code": "INT1450",
+      "name": "Học máy và ứng dụng",
+      "teacher": "PGS.TS. Lê Văn C",
+      "description": "Nền tảng các thuật toán Supervised/Unsupervised Learning, Deep Learning, Transformer và ứng dụng xử lý dữ liệu lớn.",
+      "credits": 4
+    },
+    {
+      "id": "sub-4",
+      "slug": "an-toan-bao-mat-thong-tin",
+      "code": "INT1482",
+      "name": "An toàn bảo mật thông tin",
+      "teacher": "TS. Phạm Hoàng D",
+      "description": "Mã hóa công khai, chữ ký số, giao thức xác thực OAuth2/JWT, phát hiện xâm nhập và phòng chống tấn công OWASP Top 10.",
+      "credits": 3
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "1",
+      "title": "Báo cáo tiến độ đồ án Next.js App Router",
+      "subjectSlug": "lap-trinh-web-nang-cao",
+      "subjectName": "Lập trình Web nâng cao",
+      "description": "Nộp tài liệu đặc tả kiến trúc SSG/ISR/SSR và video demo chức năng Class Deadline Hub có phân quyền can().",
+      "dueDate": "2026-11-07T23:59:59Z",
+      "priority": "high",
+      "completedBy": ["sv@ptit.edu.vn"],
+      "createdAt": "2026-10-25T08:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Đồ án", "Next.js"]
+    },
+    {
+      "id": "2",
+      "title": "Bài tập lớn 1: Tối ưu SEO và Structured Data",
+      "subjectSlug": "lap-trinh-web-nang-cao",
+      "subjectName": "Lập trình Web nâng cao",
+      "description": "Cấu hình Dynamic OG Image, JSON-LD BreadcrumbList và kiểm tra điểm Lighthouse đạt chuẩn xanh.",
+      "dueDate": "2026-11-12T23:59:59Z",
+      "priority": "medium",
+      "completedBy": [],
+      "createdAt": "2026-10-26T09:30:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["SEO", "JSON-LD"]
+    },
+    {
+      "id": "3",
+      "title": "Quiz trắc nghiệm: Cơ chế Rendering Next.js",
+      "subjectSlug": "lap-trinh-web-nang-cao",
+      "subjectName": "Lập trình Web nâng cao",
+      "description": "Làm bài kiểm tra trắc nghiệm 30 câu trên cổng học tập LMS về sự khác nhau giữa SSG, SSR và ISR.",
+      "dueDate": "2026-10-30T17:00:00Z",
+      "priority": "low",
+      "completedBy": ["sv@ptit.edu.vn", "admin@ptit.edu.vn"],
+      "createdAt": "2026-10-20T10:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Quiz", "Lý thuyết"]
+    },
+    {
+      "id": "4",
+      "title": "Thiết kế biểu đồ C4 Model hệ thống thương mại",
+      "subjectSlug": "kien-truc-phan-mem",
+      "subjectName": "Kiến trúc phần mềm",
+      "description": "Vẽ hoàn chỉnh 4 tầng biểu đồ Context, Container, Component, Code bằng Structurizr hoặc PlantUML.",
+      "dueDate": "2026-11-09T23:59:59Z",
+      "priority": "high",
+      "completedBy": [],
+      "createdAt": "2026-10-22T14:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["C4 Model", "Diagram"]
+    },
+    {
+      "id": "5",
+      "title": "Đánh giá hiệu năng kiến trúc Event-Driven với Kafka",
+      "subjectSlug": "kien-truc-phan-mem",
+      "subjectName": "Kiến trúc phần mềm",
+      "description": "Đo độ trễ và thông lượng throughput khi publish 10,000 message/giây với Apache Kafka cluster.",
+      "dueDate": "2026-11-20T23:59:59Z",
+      "priority": "medium",
+      "completedBy": [],
+      "createdAt": "2026-10-24T11:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Kafka", "Benchmark"]
+    },
+    {
+      "id": "6",
+      "title": "Thuyết trình chuyên đề Clean Architecture",
+      "subjectSlug": "kien-truc-phan-mem",
+      "subjectName": "Kiến trúc phần mềm",
+      "description": "Chuẩn bị slide thuyết trình 15 phút về nguyên lý Dependency Inversion trong kiến trúc phần mềm sạch.",
+      "dueDate": "2026-11-02T15:00:00Z",
+      "priority": "low",
+      "completedBy": ["sv@ptit.edu.vn"],
+      "createdAt": "2026-10-18T08:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Slide", "Thuyết trình"]
+    },
+    {
+      "id": "7",
+      "title": "Huấn luyện mô hình Phân loại ảnh với ResNet-50",
+      "subjectSlug": "hoc-may-va-ung-dung",
+      "subjectName": "Học máy và ứng dụng",
+      "description": "Fine-tuning mạng ResNet-50 trên tập dữ liệu nông sản, nộp file Jupyter Notebook và trọng số checkpoint.",
+      "dueDate": "2026-11-15T23:59:59Z",
+      "priority": "high",
+      "completedBy": [],
+      "createdAt": "2026-10-25T13:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["PyTorch", "Computer Vision"]
+    },
+    {
+      "id": "8",
+      "title": "Nộp báo cáo bài tập trích xuất đặc trưng NLP",
+      "subjectSlug": "hoc-may-va-ung-dung",
+      "subjectName": "Học máy và ứng dụng",
+      "description": "So sánh biểu diễn từ TF-IDF và Word2Vec trên bài toán phân tích sắc thái cảm xúc bình luận tiếng Việt.",
+      "dueDate": "2026-11-18T23:59:59Z",
+      "priority": "medium",
+      "completedBy": [],
+      "createdAt": "2026-10-27T16:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["NLP", "Word2Vec"]
+    },
+    {
+      "id": "9",
+      "title": "Bài tập thực hành: Phân cụm K-Means & PCA",
+      "subjectSlug": "hoc-may-va-ung-dung",
+      "subjectName": "Học máy và ứng dụng",
+      "description": "Thực thi thuật toán K-Means không dùng thư viện scikit-learn và trực quan hóa kết quả bằng PCA 2D.",
+      "dueDate": "2026-10-28T23:59:59Z",
+      "priority": "low",
+      "completedBy": ["sv@ptit.edu.vn"],
+      "createdAt": "2026-10-15T09:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Clustering", "Python"]
+    },
+    {
+      "id": "10",
+      "title": "Thực hành khai thác lỗ hổng SQL Injection & XSS",
+      "subjectSlug": "an-toan-bao-mat-thong-tin",
+      "subjectName": "An toàn bảo mật thông tin",
+      "description": "Khai thác bài lab DVWA (Damn Vulnerable Web App) ở mức độ Medium và viết bản khuyến nghị vá lỗi.",
+      "dueDate": "2026-11-08T23:59:59Z",
+      "priority": "high",
+      "completedBy": [],
+      "createdAt": "2026-10-28T10:00:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["OWASP", "Security"]
+    },
+    {
+      "id": "11",
+      "title": "Cài đặt thuật toán mã hoá khóa công khai RSA",
+      "subjectSlug": "an-toan-bao-mat-thong-tin",
+      "subjectName": "An toàn bảo mật thông tin",
+      "description": "Viết chương trình tạo cặp khóa RSA 2048-bit, ký số và kiểm tra tính toàn vẹn thông điệp bằng SHA-256.",
+      "dueDate": "2026-11-22T23:59:59Z",
+      "priority": "medium",
+      "completedBy": [],
+      "createdAt": "2026-10-29T14:30:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Cryptography", "RSA"]
+    },
+    {
+      "id": "12",
+      "title": "Phân tích gói tin bắt được bằng Wireshark",
+      "subjectSlug": "an-toan-bao-mat-thong-tin",
+      "subjectName": "An toàn bảo mật thông tin",
+      "description": "Phân tích file pcap chứa lưu lượng tấn công SYN Flood và xác định địa chỉ IP nguồn tấn công.",
+      "dueDate": "2026-10-26T23:59:59Z",
+      "priority": "low",
+      "completedBy": ["sv@ptit.edu.vn"],
+      "createdAt": "2026-10-12T08:30:00Z",
+      "author": "admin@ptit.edu.vn",
+      "tags": ["Wireshark", "Network"]
+    }
+  ],
+  "users": [
+    {
+      "id": "usr-admin",
+      "name": "Nguyễn Văn Lớp Trưởng",
+      "email": "admin@ptit.edu.vn",
+      "password": "admin123",
+      "role": "admin",
+      "studentId": "B21DCCN001"
+    },
+    {
+      "id": "usr-sv",
+      "name": "Trần Thị Sinh Viên",
+      "email": "sv@ptit.edu.vn",
+      "password": "sv123456",
+      "role": "user",
+      "studentId": "B21DCCN999"
+    }
+  ]
+}
