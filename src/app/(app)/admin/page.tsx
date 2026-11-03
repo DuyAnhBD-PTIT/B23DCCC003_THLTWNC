@@ -44,7 +44,7 @@ export default async function AdminPage() {
   const subjects = getAllSubjects();
 
   return (
-    <div style={{ padding: '24px 28px' }}>
+    <div style={{ padding: "24px 28px" }}>
       {/* Breadcrumb */}
       <Breadcrumb
         style={{ marginBottom: 16 }}
@@ -73,11 +73,7 @@ export default async function AdminPage() {
         <div>
           <Space size={8} style={{ marginBottom: 6 }}>
             <Tag color="error" icon={<CrownOutlined />}>
-              Lớp trưởng (Admin)
-            </Tag>
-            <Tag color="processing">Chiến lược: SSR</Tag>
-            <Tag color="success" icon={<SafetyCertificateOutlined />}>
-              Kiểm tra quyền 2 lớp can(role)
+              Lớp trưởng c
             </Tag>
           </Space>
 

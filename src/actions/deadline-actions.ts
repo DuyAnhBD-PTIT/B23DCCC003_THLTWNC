@@ -1,33 +1,36 @@
-'use server';
+"use server";
 
-import { getServerSession } from 'next-auth';
-import { revalidatePath } from 'next/cache';
-import { authOptions } from '@/lib/auth';
-import { can } from '@/lib/permissions';
+import { getServerSession } from "next-auth";
+import { revalidatePath } from "next/cache";
+import { authOptions } from "@/lib/auth";
+import { can } from "@/lib/permissions";
 import {
   toggleDeadlineCompletion,
   addDeadlineRecord,
   deleteDeadlineRecord,
-  getDeadlineById
-} from '@/lib/storage';
-import { createDeadlineSchema, ActionResult } from '@/lib/validations';
-import { Role, DeadlinePriority } from '@/types';
+  getDeadlineById,
+} from "@/lib/storage";
+import { createDeadlineSchema, ActionResult } from "@/lib/validations";
+import { Role, DeadlinePriority } from "@/types";
 
 /**
  * Server Action: Đánh dấu hoàn thành / chưa hoàn thành deadline
  * Bảo vệ 2 lớp: Kiểm tra Session + hàm can(role, 'mark_completed')
  */
-export async function toggleDeadlineAction(deadlineId: string): Promise<ActionResult> {
+export async function toggleDeadlineAction(
+  deadlineId: string,
+): Promise<ActionResult> {
   try {
     const session = await getServerSession(authOptions);
-    const userRole = (session?.user?.role as Role) || 'guest';
+    const userRole = (session?.user?.role as Role) || "guest";
     const userEmail = session?.user?.email;
 
     // 1. Kiểm tra quyền thực hiện
-    if (!session || !userEmail || !can(userRole, 'mark_completed')) {
+    if (!session || !userEmail || !can(userRole, "mark_completed")) {
       return {
         success: false,
-        error: 'Bạn không có quyền đánh dấu deadline. Vui lòng đăng nhập với tài khoản hợp lệ.'
+        error:
+          "Bạn không có quyền đánh dấu deadline. Vui lòng đăng nhập với tài khoản hợp lệ.",
       };
     }
 
@@ -36,7 +39,7 @@ export async function toggleDeadlineAction(deadlineId: string): Promise<ActionRe
     if (!deadline) {
       return {
         success: false,
-        error: 'Deadline không tồn tại trên hệ thống.'
+        error: "Deadline không tồn tại trên hệ thống.",
       };
     }
 
@@ -45,28 +48,28 @@ export async function toggleDeadlineAction(deadlineId: string): Promise<ActionRe
     if (!updated) {
       return {
         success: false,
-        error: 'Có lỗi xảy ra khi cập nhật trạng thái deadline.'
+        error: "Có lỗi xảy ra khi cập nhật trạng thái deadline.",
       };
     }
 
     // 4. Revalidate cache của các route liên quan
-    revalidatePath('/deadlines');
+    revalidatePath("/deadlines");
     revalidatePath(`/deadlines/${deadlineId}`);
-    revalidatePath('/dashboard');
-    revalidatePath('/dashboard/completed');
-    revalidatePath('/dashboard/stats');
-    revalidatePath('/admin');
-    revalidatePath('/');
+    revalidatePath("/dashboard");
+    revalidatePath("/dashboard/completed");
+    revalidatePath("/dashboard/stats");
+    revalidatePath("/admin");
+    revalidatePath("/");
 
     return {
       success: true,
-      data: updated
+      data: updated,
     };
   } catch (error) {
-    console.error('Error in toggleDeadlineAction:', error);
+    console.error("Error in toggleDeadlineAction:", error);
     return {
       success: false,
-      error: 'Lỗi máy chủ khi xử lý yêu cầu.'
+      error: "Lỗi máy chủ khi xử lý yêu cầu.",
     };
   }
 }
@@ -75,16 +78,18 @@ export async function toggleDeadlineAction(deadlineId: string): Promise<ActionRe
  * Server Action: Thêm deadline mới
  * Bảo vệ 2 lớp: Kiểm tra role admin + can(role, 'add_deadline') + Zod validate
  */
-export async function addDeadlineAction(rawInput: unknown): Promise<ActionResult> {
+export async function addDeadlineAction(
+  rawInput: unknown,
+): Promise<ActionResult> {
   try {
     const session = await getServerSession(authOptions);
-    const userRole = (session?.user?.role as Role) || 'guest';
+    const userRole = (session?.user?.role as Role) || "guest";
 
     // 1. Kiểm tra quyền Admin
-    if (!can(userRole, 'add_deadline')) {
+    if (!can(userRole, "add_deadline")) {
       return {
         success: false,
-        error: 'Chỉ Lớp trưởng (Admin) mới có quyền thêm deadline mới.'
+        error: "Chỉ Lớp trưởng  mới có quyền thêm deadline mới.",
       };
     }
 
@@ -94,8 +99,9 @@ export async function addDeadlineAction(rawInput: unknown): Promise<ActionResult
       const fieldErrors = validationResult.error.flatten().fieldErrors;
       return {
         success: false,
-        error: 'Dữ liệu không hợp lệ. Vui lòng kiểm tra lại các trường thông tin.',
-        fieldErrors
+        error:
+          "Dữ liệu không hợp lệ. Vui lòng kiểm tra lại các trường thông tin.",
+        fieldErrors,
       };
     }
 
@@ -108,28 +114,28 @@ export async function addDeadlineAction(rawInput: unknown): Promise<ActionResult
         subjectSlug: validData.subjectSlug,
         description: validData.description,
         dueDate: validData.dueDate,
-        priority: validData.priority as DeadlinePriority
+        priority: validData.priority as DeadlinePriority,
       },
-      session?.user?.email || 'admin@ptit.edu.vn'
+      session?.user?.email || "admin@ptit.edu.vn",
     );
 
     // 4. Làm mới ngay lập tức (On-demand ISR revalidation) cho các trang
-    revalidatePath('/');
-    revalidatePath('/deadlines');
+    revalidatePath("/");
+    revalidatePath("/deadlines");
     revalidatePath(`/deadlines/${newDeadline.id}`);
     revalidatePath(`/subjects/${validData.subjectSlug}`);
-    revalidatePath('/dashboard');
-    revalidatePath('/admin');
+    revalidatePath("/dashboard");
+    revalidatePath("/admin");
 
     return {
       success: true,
-      data: newDeadline
+      data: newDeadline,
     };
   } catch (error) {
-    console.error('Error in addDeadlineAction:', error);
+    console.error("Error in addDeadlineAction:", error);
     return {
       success: false,
-      error: 'Lỗi máy chủ khi thêm deadline.'
+      error: "Lỗi máy chủ khi thêm deadline.",
     };
   }
 }
@@ -137,7 +143,9 @@ export async function addDeadlineAction(rawInput: unknown): Promise<ActionResult
 /**
  * Server Action alias: createDeadlineAction
  */
-export async function createDeadlineAction(rawInput: unknown): Promise<ActionResult> {
+export async function createDeadlineAction(
+  rawInput: unknown,
+): Promise<ActionResult> {
   return addDeadlineAction(rawInput);
 }
 
@@ -145,16 +153,18 @@ export async function createDeadlineAction(rawInput: unknown): Promise<ActionRes
  * Server Action: Xoá deadline
  * Bảo vệ 2 lớp: Kiểm tra role admin + can(role, 'delete_deadline')
  */
-export async function deleteDeadlineAction(deadlineId: string): Promise<ActionResult> {
+export async function deleteDeadlineAction(
+  deadlineId: string,
+): Promise<ActionResult> {
   try {
     const session = await getServerSession(authOptions);
-    const userRole = (session?.user?.role as Role) || 'guest';
+    const userRole = (session?.user?.role as Role) || "guest";
 
     // 1. Kiểm tra quyền Admin
-    if (!can(userRole, 'delete_deadline')) {
+    if (!can(userRole, "delete_deadline")) {
       return {
         success: false,
-        error: 'Chỉ Lớp trưởng (Admin) mới có quyền xoá deadline.'
+        error: "Chỉ Lớp trưởng  mới có quyền xoá deadline.",
       };
     }
 
@@ -163,7 +173,7 @@ export async function deleteDeadlineAction(deadlineId: string): Promise<ActionRe
     if (!deadline) {
       return {
         success: false,
-        error: 'Deadline không tồn tại hoặc đã bị xoá trước đó.'
+        error: "Deadline không tồn tại hoặc đã bị xoá trước đó.",
       };
     }
 
@@ -172,27 +182,27 @@ export async function deleteDeadlineAction(deadlineId: string): Promise<ActionRe
     if (!deleted) {
       return {
         success: false,
-        error: 'Không thể xoá deadline khỏi hệ thống.'
+        error: "Không thể xoá deadline khỏi hệ thống.",
       };
     }
 
     // 4. Làm mới ngay lập tức (On-demand ISR revalidation) cho các trang
-    revalidatePath('/');
-    revalidatePath('/deadlines');
+    revalidatePath("/");
+    revalidatePath("/deadlines");
     revalidatePath(`/deadlines/${deadlineId}`);
     revalidatePath(`/subjects/${deadline.subjectSlug}`);
-    revalidatePath('/dashboard');
-    revalidatePath('/admin');
+    revalidatePath("/dashboard");
+    revalidatePath("/admin");
 
     return {
       success: true,
-      data: { id: deadlineId }
+      data: { id: deadlineId },
     };
   } catch (error) {
-    console.error('Error in deleteDeadlineAction:', error);
+    console.error("Error in deleteDeadlineAction:", error);
     return {
       success: false,
-      error: 'Lỗi máy chủ khi xoá deadline.'
+      error: "Lỗi máy chủ khi xoá deadline.",
     };
   }
 }

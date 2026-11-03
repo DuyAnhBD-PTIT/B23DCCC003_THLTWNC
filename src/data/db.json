@@ -46,10 +46,15 @@
       "description": "Nộp tài liệu đặc tả kiến trúc SSG/ISR/SSR và video demo chức năng Class Deadline Hub có phân quyền can().",
       "dueDate": "2026-11-07T23:59:59Z",
       "priority": "high",
-      "completedBy": ["sv@ptit.edu.vn"],
+      "completedBy": [
+        "sv@ptit.edu.vn"
+      ],
       "createdAt": "2026-10-25T08:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Đồ án", "Next.js"]
+      "tags": [
+        "Đồ án",
+        "Next.js"
+      ]
     },
     {
       "id": "2",
@@ -62,7 +67,10 @@
       "completedBy": [],
       "createdAt": "2026-10-26T09:30:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["SEO", "JSON-LD"]
+      "tags": [
+        "SEO",
+        "JSON-LD"
+      ]
     },
     {
       "id": "3",
@@ -72,10 +80,16 @@
       "description": "Làm bài kiểm tra trắc nghiệm 30 câu trên cổng học tập LMS về sự khác nhau giữa SSG, SSR và ISR.",
       "dueDate": "2026-10-30T17:00:00Z",
       "priority": "low",
-      "completedBy": ["sv@ptit.edu.vn", "admin@ptit.edu.vn"],
+      "completedBy": [
+        "sv@ptit.edu.vn",
+        "admin@ptit.edu.vn"
+      ],
       "createdAt": "2026-10-20T10:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Quiz", "Lý thuyết"]
+      "tags": [
+        "Quiz",
+        "Lý thuyết"
+      ]
     },
     {
       "id": "4",
@@ -88,7 +102,10 @@
       "completedBy": [],
       "createdAt": "2026-10-22T14:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["C4 Model", "Diagram"]
+      "tags": [
+        "C4 Model",
+        "Diagram"
+      ]
     },
     {
       "id": "5",
@@ -101,7 +118,10 @@
       "completedBy": [],
       "createdAt": "2026-10-24T11:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Kafka", "Benchmark"]
+      "tags": [
+        "Kafka",
+        "Benchmark"
+      ]
     },
     {
       "id": "6",
@@ -111,10 +131,15 @@
       "description": "Chuẩn bị slide thuyết trình 15 phút về nguyên lý Dependency Inversion trong kiến trúc phần mềm sạch.",
       "dueDate": "2026-11-02T15:00:00Z",
       "priority": "low",
-      "completedBy": ["sv@ptit.edu.vn"],
+      "completedBy": [
+        "sv@ptit.edu.vn"
+      ],
       "createdAt": "2026-10-18T08:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Slide", "Thuyết trình"]
+      "tags": [
+        "Slide",
+        "Thuyết trình"
+      ]
     },
     {
       "id": "7",
@@ -124,10 +149,15 @@
       "description": "Fine-tuning mạng ResNet-50 trên tập dữ liệu nông sản, nộp file Jupyter Notebook và trọng số checkpoint.",
       "dueDate": "2026-11-15T23:59:59Z",
       "priority": "high",
-      "completedBy": [],
+      "completedBy": [
+        "admin@ptit.edu.vn"
+      ],
       "createdAt": "2026-10-25T13:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["PyTorch", "Computer Vision"]
+      "tags": [
+        "PyTorch",
+        "Computer Vision"
+      ]
     },
     {
       "id": "8",
@@ -140,7 +170,10 @@
       "completedBy": [],
       "createdAt": "2026-10-27T16:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["NLP", "Word2Vec"]
+      "tags": [
+        "NLP",
+        "Word2Vec"
+      ]
     },
     {
       "id": "9",
@@ -150,10 +183,15 @@
       "description": "Thực thi thuật toán K-Means không dùng thư viện scikit-learn và trực quan hóa kết quả bằng PCA 2D.",
       "dueDate": "2026-10-28T23:59:59Z",
       "priority": "low",
-      "completedBy": ["sv@ptit.edu.vn"],
+      "completedBy": [
+        "sv@ptit.edu.vn"
+      ],
       "createdAt": "2026-10-15T09:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Clustering", "Python"]
+      "tags": [
+        "Clustering",
+        "Python"
+      ]
     },
     {
       "id": "10",
@@ -166,7 +204,10 @@
       "completedBy": [],
       "createdAt": "2026-10-28T10:00:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["OWASP", "Security"]
+      "tags": [
+        "OWASP",
+        "Security"
+      ]
     },
     {
       "id": "11",
@@ -179,7 +220,10 @@
       "completedBy": [],
       "createdAt": "2026-10-29T14:30:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Cryptography", "RSA"]
+      "tags": [
+        "Cryptography",
+        "RSA"
+      ]
     },
     {
       "id": "12",
@@ -189,10 +233,15 @@
       "description": "Phân tích file pcap chứa lưu lượng tấn công SYN Flood và xác định địa chỉ IP nguồn tấn công.",
       "dueDate": "2026-10-26T23:59:59Z",
       "priority": "low",
-      "completedBy": ["sv@ptit.edu.vn"],
+      "completedBy": [
+        "sv@ptit.edu.vn"
+      ],
       "createdAt": "2026-10-12T08:30:00Z",
       "author": "admin@ptit.edu.vn",
-      "tags": ["Wireshark", "Network"]
+      "tags": [
+        "Wireshark",
+        "Network"
+      ]
     }
   ],
   "users": [

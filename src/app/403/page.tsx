@@ -23,7 +23,7 @@ export default function ForbiddenPage() {
         status="403"
         icon={<LockOutlined style={{ color: "#ff4d4f" }} />}
         title="403 - Quyền truy cập bị từ chối"
-        subTitle="Khu vực này chỉ dành riêng cho Lớp trưởng (Admin). Tài khoản sinh viên của bạn không có quyền truy cập trang quản trị."
+        subTitle="Khu vực này chỉ dành riêng cho Lớp trưởng . Tài khoản sinh viên của bạn không có quyền truy cập trang quản trị."
         extra={[
           <Link href="/dashboard" key="dashboard">
             <Button

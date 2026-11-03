@@ -6,7 +6,6 @@ import { authOptions } from "@/lib/auth";
 import { getAllDeadlines, getAllSubjects } from "@/lib/storage";
 import TaskBoardView from "@/components/deadlines/TaskBoardView";
 
-// Chiến lược: SSR (Server-Side Rendering)
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -30,10 +29,10 @@ export default async function DashboardPage() {
 
   const userEmail = user.email;
   const completedDeadlines = allDeadlines.filter((d) =>
-    d.completedBy.includes(userEmail)
+    d.completedBy.includes(userEmail),
   );
   const pendingDeadlines = allDeadlines.filter(
-    (d) => !d.completedBy.includes(userEmail)
+    (d) => !d.completedBy.includes(userEmail),
   );
 
   return (
