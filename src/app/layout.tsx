@@ -10,8 +10,16 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
+function getMetadataBaseUrl(): URL {
+  try {
+    return new URL(getBaseUrl());
+  } catch {
+    return new URL('http://localhost:3000');
+  }
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(getBaseUrl()),
+  metadataBase: getMetadataBaseUrl(),
   title: {
     template: '%s | Class Deadline Hub - PTIT',
     default: 'Class Deadline Hub - Cổng thông tin Deadline Lớp học PTIT'
