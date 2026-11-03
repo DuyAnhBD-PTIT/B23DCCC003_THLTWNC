@@ -276,26 +276,4 @@ Việc chỉ dựa duy nhất vào Middleware ở tầng định tuyến mạng 
    - **Tầng 2 (Page Server Component - `src/app/(app)/admin/page.tsx`)**: Tự lấy session phía server qua `getServerSession(authOptions)` và kiểm tra `can(role, 'add_deadline')`. Nếu vi phạm sẽ chủ động `redirect('/403')`.
    - **Tầng 3 (Data & Mutation - `deadline-actions.ts`)**: Mọi Server Action đều tự xác thực session, gọi hàm phân quyền duy nhất `can(role, action)`, và xác thực chặt chẽ cấu trúc dữ liệu đầu vào bằng `Zod schema` trước khi ghi vào cơ sở dữ liệu.
 
----
-
-## 8. Các Điểm Cộng Đã Hoàn Thành (Bonus)
-
-1. **Ma trận phân quyền duy nhất `can(role, action)` và Test Suite Jest đầy đủ**:
-   - File `src/lib/permissions.ts` định nghĩa ma trận phân quyền duy nhất (Single Source of Truth).
-   - Đã viết bộ test Jest toàn diện `src/lib/__tests__/permissions.test.ts` kiểm thử 100% các nhánh quyền (guest, user, admin) cho cả 4 hành động.
-   - Kiểm thử Zod validation `src/lib/__tests__/validation.test.ts` đảm bảo dữ liệu đầu vào được bảo vệ toàn diện.
-   - Kết quả: **18/18 tests PASSED**.
-
-2. **Deploy lên Vercel Sẵn Sàng (Vercel Ready)**:
-   - File cấu hình môi trường `.env.local` và biến tự nhận diện.
-   - Hàm `getBaseUrl()` tự động tương thích với `VERCEL_URL`.
-   - Cơ chế `/tmp` JSON storage an toàn trên môi trường Serverless.
-
-3. **Tối ưu UX và Giao diện tối giản chuẩn Ant Design**:
-   - Sử dụng nền trắng tinh tế (`#ffffff`) với bộ 4 màu tối giản:
-     - Primary: `#1677ff` (Xanh công nghệ)
-     - Warning: `#faad14` (Vàng cam cảnh báo hạn chót)
-     - Success: `#52c41a` (Xanh lục hoàn thành bài tập)
-     - Destroy: `#ff4d4f` (Đỏ cảnh báo quá hạn & nút xoá an toàn)
-   - Sử dụng logo PTIT chính thức ([logo-ptit.png](file:///d:/thltwnc2/public/logo-ptit.png)) và favicon PTIT.
-   - Sử dụng 100% icon từ thư viện `@ant-design/icons`.
+--
