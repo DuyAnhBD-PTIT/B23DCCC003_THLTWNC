@@ -39,42 +39,7 @@ Cổng thông tin quản lý và theo dõi hạn nộp bài tập lớn, đồ �
 
 ---
 
-## 2. Hướng Dẫn Deploy Lên Vercel Cá Nhân & Cấu Hình Đường Dẫn (Path)
-
-Dự án đã được tối ưu hóa toàn diện cho việc triển khai trên nền tảng **Vercel**:
-
-### Bước 1: Đẩy mã nguồn lên GitHub cá nhân
-
-```bash
-git add .
-git commit -m "feat: deploy class deadline hub to vercel"
-git push origin master
-```
-
-### Bước 2: Import Project trên Vercel
-
-1. Đăng nhập vào [vercel.com](https://vercel.com) và chọn **"Add New Project"**.
-2. Chọn Repository GitHub vừa tạo.
-3. Framework Preset: **Next.js** (Vercel tự động nhận diện).
-4. Root Directory: `./` (để mặc định).
-
-### Bước 3: Cấu hình biến môi trường (Environment Variables)
-
-Tại mục **Environment Variables** trong trang thiết lập của Vercel (hoặc vào `Project Settings -> Environment Variables`), khai báo 2 biến:
-
-| Key (Tên biến)    | Value mẫu trên Vercel                               | Giải thích                                                                                 |
-| :---------------- | :-------------------------------------------------- | :----------------------------------------------------------------------------------------- |
-| `NEXTAUTH_URL`    | `https://your-project-name.vercel.app`              | **Đường dẫn URL triển khai chính thức của bạn**. Nhập domain Vercel cấp hoặc domain riêng. |
-| `NEXTAUTH_SECRET` | `ptit_class_deadline_hub_super_secret_jwt_key_2026` | Chuỗi bí mật mã hóa JWT (có thể dùng lệnh `openssl rand -base64 32` để tạo mới).           |
-
-> **Cơ chế tự động thông minh đã tích hợp sẵn:**
->
-> - Hàm `getBaseUrl()` tại `src/lib/constants.ts` đã được lập trình sẵn để tự động bắt biến `process.env.VERCEL_URL` do Vercel cấp. Do đó ngay cả khi bạn chưa gắn tên miền riêng, sitemap, robots, OpenGraph preview và NextAuth vẫn hoạt động trơn tru 100%.
-> - Trên môi trường Vercel Serverless (vốn có hệ thống tệp root là Read-Only), module `src/lib/storage.ts` tự động chuyển vùng lưu trữ JSON sang thư mục `/tmp` có quyền ghi và đồng bộ với In-memory cache, không bao giờ bị lỗi `EROFS: read-only file system`.
-
----
-
-## 3. Tài Khoản Đăng Nhập Mẫu (Bắt Buộc)
+## 2. Tài Khoản Đăng Nhập Mẫu
 
 Hệ thống được cài đặt sẵn 2 tài khoản kiểm thử theo đúng đặc tả:
 
@@ -87,7 +52,7 @@ _(Trang đăng nhập `/login` có tích hợp sẵn 2 nút **"Điền nhanh"** 
 
 ---
 
-## 4. Kết Quả `npm run build` & Lý Do Chọn Chiến Lược Render Từng Route
+## 3. Kết Quả `npm run build` & Lý Do Chọn Chiến Lược Render Từng Route
 
 ### Kết quả Build thực tế từ Terminal
 
@@ -138,7 +103,7 @@ Route (app)                                 Size     First Load JS
 
 ---
 
-## 5. Điểm Đánh Giá Google Lighthouse
+## 4. Điểm Đánh Giá Google Lighthouse
 
 Được đo lường trên bản dựng Production (`next build` & `next start`) tại địa chỉ `http://localhost:3000`:
 

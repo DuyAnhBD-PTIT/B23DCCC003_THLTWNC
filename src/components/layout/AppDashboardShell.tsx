@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -921,7 +922,6 @@ export default function AppDashboardShell({
             </span>
           </div>
 
-          {/* Thanh công cụ phải: Tìm kiếm, Thông báo, Hồ sơ */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ width: 220 }}>
               <Input
